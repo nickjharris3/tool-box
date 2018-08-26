@@ -1,9 +1,11 @@
 import React from 'react';
-import MenuAppBar from '../../components/AppBar/AppBar';
+import Body from './Body/Body';
 
 const Home = () => {
     return (
-        <MenuAppBar />
+        <div>
+            <Body />
+        </div>
     );
 }
 
