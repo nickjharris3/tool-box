@@ -9,8 +9,8 @@ const Landing = () => (
     <div>
     <MenuAppBar />
     <Switch>
-        <Route path="/" exact component={Auth} />
-        <Route path="/home" component={Home} />
+        <Route path="/" exact component={Home} />
+        <Route path="/Auth" component={Auth} />
         <Route
           path="/*"
           render={() => <Redirect to="/" />}

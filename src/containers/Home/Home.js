@@ -1,10 +1,10 @@
 import React from 'react';
-import Body from './Body/Body';
+import FAB from './Body/FAB';
 
 const Home = () => {
     return (
         <div>
-            <Body />
+            <FAB />
         </div>
     );
 }
