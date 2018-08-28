@@ -13,8 +13,22 @@ firebase.initializeApp(config);
 
 const database = firebase.database();
 
-database.ref().set({
-    name: 'Nick Harris',
-    age: 22,
-    isSingle: false
+// database.ref().remove();
+
+database.ref('tools').set({
+    slack: {
+        name: 'Slack',
+        url: 'www.slack.com'
+    },
+    tello: {
+        name: 'Trello',
+        url: 'www.trello.com'
+    }
+});
+
+database.ref('tools').update({
+    firebase: {
+        name: 'Firebase',
+        url: 'www.firebase.com'
+    }
 });
