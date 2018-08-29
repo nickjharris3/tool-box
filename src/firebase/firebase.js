@@ -16,18 +16,15 @@ const database = firebase.database();
 // database.ref().remove();
 
 database.ref('tools').set({
-    slack: {
+    t001: {
         name: 'Slack',
         url: 'www.slack.com'
     },
-    tello: {
+    t002: {
         name: 'Trello',
         url: 'www.trello.com'
-    }
-});
-
-database.ref('tools').update({
-    firebase: {
+    },
+    t003: {
         name: 'Firebase',
         url: 'www.firebase.com'
     }
