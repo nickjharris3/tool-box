@@ -4,6 +4,7 @@ import FAB from './Body/FAB';
 const Home = () => {
     return (
         <div>
+        <p>Test</p>
             <FAB />
         </div>
     );
