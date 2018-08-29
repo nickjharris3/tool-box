@@ -26,7 +26,7 @@ class FAB extends React.Component {
 
 FAB.propTypes = {
     classes: PropTypes.object.isRequired,
-    theme: PropTypes.object.isRequired,
+    theme: PropTypes.object,
   };
 
 export default withStyles(styles)(FAB);
