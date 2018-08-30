@@ -13,19 +13,23 @@ firebase.initializeApp(config);
 
 const database = firebase.database();
 
-// database.ref().remove();
-
-database.ref('tools').set({
+database.ref('tools').update({
     t001: {
         name: 'Slack',
-        url: 'www.slack.com'
+        url: 'https://slack.com/',
+        imageUrl: 'https://i.pinimg.com/originals/2b/26/43/2b26437d72e949db88e62d251c736c45.gif',
+        description: 'Team communication tool.'
     },
     t002: {
         name: 'Trello',
-        url: 'www.trello.com'
+        url: 'https://trello.com/',
+        imageUrl: 'https://cdn.dribbble.com/users/540920/screenshots/2355118/trello.png',
+        description: 'Project management app.'
     },
     t003: {
         name: 'Firebase',
-        url: 'www.firebase.com'
+        url: 'https://firebase.google.com/',
+        imageUrl: 'https://1.bp.blogspot.com/-zVNGq7J_pkI/V2zc3rYWySI/AAAAAAAAWsM/SxLC4c3n5_Q0DcQEbRE1oCbE20T4gHyuACKgB/s1600/firebase_logo_shot.png',
+        description: 'Cloud based backend to get apps up and running fast.'
     }
 });
