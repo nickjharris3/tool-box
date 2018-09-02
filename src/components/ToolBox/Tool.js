@@ -25,6 +25,7 @@ const Tool = (props) => {
                     </CardContent>
                     <CardActions>
                         <Button size="small" color="primary" href={props.tool.fields.url} target="_blank">
+                            Go To Tool
                         </Button>
                     </CardActions>
                 </Card>
