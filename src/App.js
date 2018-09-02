@@ -3,7 +3,9 @@ import './App.css';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import blue from '@material-ui/core/colors/blue';
 import pink from '@material-ui/core/colors/pink';
-import Landing from './containers/Landing/Landing';
+import NavBar from './components/AppBar/AppBar';
+// import ToolList from './components/ToolBox/ToolBox';
+import SimpleModalWrapped from './components/Modal/Modal';
 import './firebase/firebase';
 
 const theme = createMuiTheme({
@@ -17,7 +19,8 @@ class App extends Component {
   render() {
     return (
       <MuiThemeProvider theme={theme}>
-        <Landing />
+        <NavBar />
+        <SimpleModalWrapped />
       </MuiThemeProvider>
     );
   }
