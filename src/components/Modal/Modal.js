@@ -53,7 +53,6 @@ class SimpleModal extends React.Component {
 
     return (
       <div>
-        <Typography gutterBottom>Click to get the full Modal experience!</Typography>
         <Button variant="fab" color="secondary" aria-label="Add" className={classes.button} onClick={this.handleOpen}>
             <AddIcon />
         </Button>

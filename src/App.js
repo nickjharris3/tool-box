@@ -6,6 +6,7 @@ import blue from '@material-ui/core/colors/blue';
 import pink from '@material-ui/core/colors/pink';
 import NavBar from './components/AppBar/AppBar';
 import SearchBar from './components/SearchBar/SearchBar';
+import ToolDashboard from './components/ToolList/ToolDashboard';
 import SimpleModalWrapped from './components/Modal/Modal';
 import configStore from "./store/configStore";
 import { addTool } from './actions/tools';
@@ -16,7 +17,7 @@ const store = configStore();
 
 store.dispatch(addTool({ name: 'slack' }));
 store.dispatch(addTool({ name: 'trello'}));
-store.dispatch(setTextFilter(''));
+store.dispatch(setTextFilter('ack'));
 
 const state = store.getState();
 const visibleTools = getVisibleTools(state.tools, state.filters);
@@ -38,6 +39,7 @@ class App extends Component {
       <MuiThemeProvider theme={theme}>
         <NavBar />
         <SearchBar />
+        <ToolDashboard />
         <SimpleModalWrapped />
       </MuiThemeProvider>
       </Provider>
