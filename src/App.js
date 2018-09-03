@@ -4,9 +4,24 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import blue from '@material-ui/core/colors/blue';
 import pink from '@material-ui/core/colors/pink';
 import NavBar from './components/AppBar/AppBar';
-// import ToolList from './components/ToolBox/ToolBox';
+import SearchBar from './components/SearchBar/SearchBar';
 import SimpleModalWrapped from './components/Modal/Modal';
-import './firebase/firebase';
+import configStore from "./store/configStore";
+import { addTool } from './actions/tools';
+import { setTextFilter } from './actions/filters';
+import getVisibleTools from './selectors/tools';
+
+const store = configStore();
+
+store.dispatch(addTool({ name: 'slack' }));
+store.dispatch(addTool({ name: 'trello'}));
+store.dispatch(setTextFilter('ack'));
+
+const state = store.getState();
+const visibleTools = getVisibleTools(state.tools, state.filters);
+console.log(visibleTools);
+
+// console.log(store.getState());
 
 const theme = createMuiTheme({
   palette: {
@@ -20,6 +35,7 @@ class App extends Component {
     return (
       <MuiThemeProvider theme={theme}>
         <NavBar />
+        <SearchBar />
         <SimpleModalWrapped />
       </MuiThemeProvider>
     );

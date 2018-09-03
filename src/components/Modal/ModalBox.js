@@ -18,10 +18,7 @@ const styles = theme => ({
 
 class ModalBox extends React.Component {
   state = {
-    name: 'Cat in the Hat',
-    age: '',
-    multiline: 'Controlled',
-    currency: 'EUR',
+    
   };
 
   handleChange = name => event => {
@@ -40,44 +37,29 @@ class ModalBox extends React.Component {
         </Typography>  
       <form className={classes.container} noValidate autoComplete="off">
         <TextField
-          id="full-width"
+          id="with-placeholder"
           label="Name"
-          InputLabelProps={{
-            shrink: true,
-          }}
           placeholder="Slack"
-        //   helperText="Slack"
           fullWidth
           margin="normal"
         />
         <TextField
-          id="full-width"
+          id="with-placeholder"
           label="Description"
-          InputLabelProps={{
-            shrink: true,
-          }}
           placeholder="A cloud-based team collaboration tool."
-        //   helperText="Full width!"
           fullWidth
           margin="normal"
         />
         <TextField
-          id="full-width"
+          id="with-placeholder"
           label="Website URL"
-          InputLabelProps={{
-            shrink: true,
-          }}
           placeholder="https://slack.com"
-        //   helperText="Full width!"
           fullWidth
           margin="normal"
         />
         <TextField
-          id="full-width"
+          id="with-placeholder"
           label="Image URL"
-          InputLabelProps={{
-            shrink: true,
-          }}
           placeholder="data:image/png;base64,iVBORw0KGgoAAA..."
           helperText="Right click image then 'Copy Image Address'"
           fullWidth
