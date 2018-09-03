@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Provider } from 'react-redux';
 import './App.css';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import blue from '@material-ui/core/colors/blue';
@@ -15,7 +16,7 @@ const store = configStore();
 
 store.dispatch(addTool({ name: 'slack' }));
 store.dispatch(addTool({ name: 'trello'}));
-store.dispatch(setTextFilter('ack'));
+store.dispatch(setTextFilter(''));
 
 const state = store.getState();
 const visibleTools = getVisibleTools(state.tools, state.filters);
@@ -33,11 +34,13 @@ const theme = createMuiTheme({
 class App extends Component {
   render() {
     return (
+      <Provider store={store}>
       <MuiThemeProvider theme={theme}>
         <NavBar />
         <SearchBar />
         <SimpleModalWrapped />
       </MuiThemeProvider>
+      </Provider>
     );
   }
 }
