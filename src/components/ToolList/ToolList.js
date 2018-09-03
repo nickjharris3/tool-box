@@ -5,7 +5,6 @@ import { checkPropTypes } from 'prop-types';
 const ToolList = (props) => (
     <div>
         <h1>Tool List</h1>
-        {props.filters.text}
         {props.tools.length}
     </div>
 
