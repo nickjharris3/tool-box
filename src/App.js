@@ -1,12 +1,29 @@
 import React, { Component } from 'react';
+import { Provider } from 'react-redux';
 import './App.css';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import blue from '@material-ui/core/colors/blue';
 import pink from '@material-ui/core/colors/pink';
 import NavBar from './components/AppBar/AppBar';
-// import ToolList from './components/ToolBox/ToolBox';
+import SearchBar from './components/SearchBar/SearchBar';
+import ToolDashboard from './components/ToolList/ToolDashboard';
 import SimpleModalWrapped from './components/Modal/Modal';
-import './firebase/firebase';
+import configStore from "./store/configStore";
+import { addTool } from './actions/tools';
+import { setTextFilter } from './actions/filters';
+import getVisibleTools from './selectors/tools';
+
+const store = configStore();
+
+store.dispatch(addTool({ name: 'slack', description: 'cloud base team'}));
+store.dispatch(addTool({ name: 'trello', description: 'kanban board'}));
+store.dispatch(setTextFilter(''));
+
+const state = store.getState();
+const visibleTools = getVisibleTools(state.tools, state.filters);
+console.log(visibleTools);
+
+// console.log(store.getState());
 
 const theme = createMuiTheme({
   palette: {
@@ -18,10 +35,14 @@ const theme = createMuiTheme({
 class App extends Component {
   render() {
     return (
+      <Provider store={store}>
       <MuiThemeProvider theme={theme}>
         <NavBar />
+        <SearchBar />
+        <ToolDashboard />
         <SimpleModalWrapped />
       </MuiThemeProvider>
+      </Provider>
     );
   }
 }
