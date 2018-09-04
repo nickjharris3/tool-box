@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
+import { connect } from 'react-redux';
+import { setTextFilter } from '../../actions/filters';
 
 const styles = theme => ({
   container: {
@@ -15,35 +17,29 @@ const styles = theme => ({
   },
 });
 
-class SearchBar extends React.Component {
-  state = {
-  };
-
-  handleChange = name => event => {
-    this.setState({
-      [name]: event.target.value,
-    });
-  };
-
-  render() {
-    const { classes } = this.props;
-
-    return (
-        <form className={classes.container} noValidate autoComplete="off">
+const ToolListFilters = (props) => (
+        <form noValidate autoComplete="off">
             <TextField
                 id="search"
                 label="Search tools"
                 type="search"
-                className={classes.textField}
                 margin="normal"
+                value={props.filters.text}
+                onChange={(e) => {
+                  props.dispatch(setTextFilter(e.target.value))
+              }}
             />
         </form>
-    );
+  );
+
+const mapStateToProps = (state) => {
+  return {
+    filters: state.filters
   }
 }
 
-SearchBar.propTypes = {
-  classes: PropTypes.object.isRequired,
+ToolListFilters.propTypes = {
+  classes: PropTypes.object,
 };
 
-export default withStyles(styles)(SearchBar);
+export default connect(mapStateToProps)(ToolListFilters); withStyles(styles)(ToolListFilters);

@@ -15,9 +15,9 @@ import getVisibleTools from './selectors/tools';
 
 const store = configStore();
 
-store.dispatch(addTool({ name: 'slack' }));
-store.dispatch(addTool({ name: 'trello'}));
-store.dispatch(setTextFilter('ack'));
+store.dispatch(addTool({ name: 'slack', description: 'cloud base team'}));
+store.dispatch(addTool({ name: 'trello', description: 'kanban board'}));
+store.dispatch(setTextFilter(''));
 
 const state = store.getState();
 const visibleTools = getVisibleTools(state.tools, state.filters);
